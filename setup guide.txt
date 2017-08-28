@@ -15,3 +15,7 @@ How to Use/Install
 1.Copy/download all files and paste all files in a one single folder.
 2. Open or run index.html file in any web browser like Microsoft Edge
 3. Must have internet connection to see page table results.
+4. Mockup design(.png format) are already included in a github repository or in a .zip file
+
+github repository url:
+https://github.com/Marvin261/-Surepulse-Dev-Test
