@@ -1,0 +1,17 @@
+SuperPulse Dev Test Setup Guide.
+
+List of Included Files
+1. albums.html
+2. comments.html
+3. index.html
+4. photos.html
+5. posts.html
+6. setuo guide.txt
+7. todos.html
+8. users.html
+9. xyz.css
+
+How to Use/Install
+1.Copy/download all files and paste all files in a one single folder.
+2. Open or run index.html file in any web browser like Microsoft Edge
+3. Must have internet connection to see page table results.

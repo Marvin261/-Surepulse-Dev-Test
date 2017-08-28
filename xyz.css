@@ -1,0 +1,32 @@
+a {
+    font-size: 16px;
+    padding: 5px;
+    color: brown;
+}
+table {
+    font-family: arial, sans-serif;
+    /* border-collapse: collapse; */
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: center;
+    padding: 5px;
+}
+
+tr:nth-child(even) {
+    background-color: green;
+}
+tr:nth-child(odd) {
+    background-color: skyblue;
+}
+.home_xyz{
+   border: 1px groove black;
+   text-align:  center;
+   width: 20%;
+   margin: auto;
+   padding: 5px;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="xyz.css">
+</head>
+
+<body>
+
+<h2>vi. Users: https://jsonplaceholder.typicode.com/users </h2>
+<div class="home_nav">
+<a href="index.html">Dashboard</a>
+<a href="posts.html">Posts</a>
+<a href="comments.html">Comments</a>
+<a href="albums.html">Albums</a>
+<a href="photos.html">Photos</a>
+<a href="todos.html">Todos</a>
+<a href="users.html">Users</a></div>
+
+<div id="table_users"></div>
+
+<script>
+var users = '';
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var myObj = JSON.parse(this.responseText);
+       users += '<table border="1">';
+       users += '<tr><th>ID</th>';
+       users += '<th>NAME</th>';
+       users += '<th>USERNAME</th>';
+       users += '<th>email</th>'
+       users += '<th colspan="6">ADDRESS</th></tr>'
+       users += '<tr><th></th>';
+       users += '<th></th>';
+       users += '<th></th>';
+       users += '<th></th>';
+       users += '<th>STREET</th>';
+       users += '<th>SUITE</th>';
+       users += '<th>City</th>';
+       users += '<th>ZIP CODE</th>';
+       users += '<th colspan="2">GEO</th></tr>';
+       users += '<tr><th></th>';
+       users += '<th></th>';
+       users += '<th></th>';
+       users += '<th></th>';
+       users += '<th></th>';
+       users += '<th></th>';
+       users += '<th></th>';
+       users += '<th></th>';
+       users += '<th>LAT</th>';
+       users += '<th>LNG</th></tr>';
+       
+       for (x in myObj) {
+            users +=  '<tr><td>' + myObj[x].id + '</td>';
+            users +=  '<td>' + myObj[x].name + '</td>'; 
+            users +=  '<td>' + myObj[x].username + '</td>';
+            users +=  '<td>' + myObj[x].email + '</td>';
+            users +=  '<td>' + myObj[x].address.street + '</td>'; 
+            users +=  '<td>' + myObj[x].address.suite + '</td>';  
+            users +=  '<td>' + myObj[x].address.city + '</td>'; 
+            users +=  '<td>' + myObj[x].address.zipcode + '</td>';
+            users +=  '<td>' + myObj[x].address.geo.lat + '</td>'; 
+    		users +=  '<td>' + myObj[x].address.geo.lng + '</td></tr>';      
+      } 
+      users += '</table>';
+      document.getElementById('table_users').innerHTML = users;
+   }   
+};
+xmlhttp.open("GET", "https://jsonplaceholder.typicode.com/users", true);
+xmlhttp.send();
+</script>
+
+<div class="footer_nav">
+<a href="index.html">Dashboard</a>
+<a href="posts.html">Posts</a>
+<a href="comments.html">Comments</a>
+<a href="albums.html">Albums</a>
+<a href="photos.html">Photos</a>
+<a href="todos.html">Todos</a>
+<a href="users.html">Users</a></div>
+<div id="table_posts"></div>
+</body>
+</html>

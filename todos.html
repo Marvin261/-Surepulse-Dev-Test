@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="xyz.css">
+</head>
+
+<body>
+
+<h2>v. Todos: https://jsonplaceholder.typicode.com/todos </h2>
+<div class="home_nav">
+<a href="index.html">Dashboard</a>
+<a href="posts.html">Posts</a>
+<a href="comments.html">Comments</a>
+<a href="albums.html">Albums</a>
+<a href="photos.html">Photos</a>
+<a href="todos.html">Todos</a>
+<a href="users.html">Users</a></div>
+
+<div id="table_todos"></div>
+
+<script>
+var todos = '';
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var myObj = JSON.parse(this.responseText);
+       todos += '<table border="1">';
+       todos += '<tr><th>USERID</th>';
+       todos += '<th>ID</th>';
+       todos += '<th>TITLE</th>';
+       todos += '<th>COMPLETED</th></tr>';
+       
+       for (x in myObj) {
+            todos +=  '<tr><td>' + myObj[x].userId + '</td>';
+            todos +=  '<td>' + myObj[x].id + '</td>'; 
+            todos +=  '<td>' + myObj[x].title + '</td>'; 
+    		todos +=  '<td>' + myObj[x].completed + '</td></tr>';      
+      } 
+      todos += '</table>';
+      document.getElementById('table_todos').innerHTML = todos;
+   }   
+};
+xmlhttp.open("GET", "https://jsonplaceholder.typicode.com/todos", true);
+xmlhttp.send();
+</script>
+
+<div class="footer_nav">
+<a href="index.html">Dashboard</a>
+<a href="posts.html">Posts</a>
+<a href="comments.html">Comments</a>
+<a href="albums.html">Albums</a>
+<a href="photos.html">Photos</a>
+<a href="todos.html">Todos</a>
+<a href="users.html">Users</a></div>
+<div id="table_posts"></div>
+</body>
+</html>

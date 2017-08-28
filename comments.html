@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="xyz.css">
+</head>
+
+<body>
+
+<h2>ii. Comments: https://jsonplaceholder.typicode.com/comments </h2>
+<div class="home_nav">
+<a href="index.html">Dashboard</a>
+<a href="posts.html">Posts</a>
+<a href="comments.html">Comments</a>
+<a href="albums.html">Albums</a>
+<a href="photos.html">Photos</a>
+<a href="todos.html">Todos</a>
+<a href="users.html">Users</a></div>
+
+<div id="table_comments"></div>
+
+<script>
+var comments = '';
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var myObj = JSON.parse(this.responseText);
+       comments += '<table border="1">';
+       comments += '<tr><th>POSTID</th>';
+       comments += '<th>ID</th>';
+       comments += '<th>NAME</th>';
+       comments += '<th>EMAIL</th>';
+       comments += '<th>BODY</th></tr>';
+       
+       for (x in myObj) {
+            comments +=  '<tr><td>' + myObj[x].postId + '</td>';
+            comments +=  '<td>' + myObj[x].id + '</td>'; 
+            comments +=  '<td>' + myObj[x].name + '</td>'; 
+            comments +=  '<td>' + myObj[x].email + '</td>';
+    		comments +=  '<td>' + myObj[x].body + '</td></tr>';      
+      } 
+     comments += '</table>';
+       document.getElementById('table_comments').innerHTML = comments;
+   }   
+};
+xmlhttp.open("GET", "https://jsonplaceholder.typicode.com/comments", true);
+xmlhttp.send();
+</script>
+<div class="footer_nav">
+<a href="index.html">Dashboard</a>
+<a href="posts.html">Posts</a>
+<a href="comments.html">Comments</a>
+<a href="albums.html">Albums</a>
+<a href="photos.html">Photos</a>
+<a href="todos.html">Todos</a>
+<a href="users.html">Users</a></div>
+<div id="table_posts"></div>
+</body>
+</html>

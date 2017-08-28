@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="xyz.css">
+</head>
+
+<body>
+
+<h2>iv. Photos: https://jsonplaceholder.typicode.com/photos </h2>
+<div class="home_nav">
+<a href="index.html">Dashboard</a>
+<a href="posts.html">Posts</a>
+<a href="comments.html">Comments</a>
+<a href="albums.html">Albums</a>
+<a href="photos.html">Photos</a>
+<a href="todos.html">Todos</a>
+<a href="users.html">Users</a></div>
+
+<div id="table_photos"></div>
+
+<script>
+var photos = '';
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var myObj = JSON.parse(this.responseText);
+       photos += '<table border="1">';
+       photos += '<tr><th>ALBUMID</th>';
+       photos += '<th>ID</th>';
+       photos += '<th>TITLE</th>';
+       photos += '<th>URL</th>';
+       photos += '<th>THUMBNAIL URL</th></tr>';
+       
+       for (x in myObj) {
+            photos +=  '<tr><td>' + myObj[x].albumId + '</td>';
+            photos +=  '<td>' + myObj[x].id + '</td>'; 
+            photos +=  '<td>' + myObj[x].title + '</td>'; 
+            photos +=  '<td>' + myObj[x].url + '</td>'; 
+    		photos +=  '<td>' + myObj[x].thumbnailUrl + '</td></tr>';      
+      } 
+      photos += '</table>';
+      document.getElementById('table_photos').innerHTML = photos;
+   }   
+};
+xmlhttp.open("GET", "https://jsonplaceholder.typicode.com/photos", true);
+xmlhttp.send();
+</script>
+<div class="footer_nav">
+<a href="index.html">Dashboard</a>
+<a href="posts.html">Posts</a>
+<a href="comments.html">Comments</a>
+<a href="albums.html">Albums</a>
+<a href="photos.html">Photos</a>
+<a href="todos.html">Todos</a>
+<a href="users.html">Users</a></div>
+<div id="table_posts"></div>
+</body>
+</html>

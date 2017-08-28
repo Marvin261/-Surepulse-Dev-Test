@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="xyz.css">
+</head>
+
+<body>
+<h2>i. Posts: https://jsonplaceholder.typicode.com/posts </h2>
+<div class="home_nav"><a href="index.html">Dashboard</a>
+<a href="posts.html">Posts</a>
+<a href="comments.html">Comments</a>
+<a href="albums.html">Albums</a>
+<a href="photos.html">Photos</a>
+<a href="todos.html">Todos</a>
+<a href="users.html">Users</a></div>
+<div id="table_posts"></div>
+
+<script>
+var posts = '';
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var myObj = JSON.parse(this.responseText);
+       posts += '<table border="1">';
+       posts += '<tr><th>USERID</th>';
+       posts += '<th>ID</th>';
+       posts += '<th>TITLE</th>';
+       posts += '<th>BODY</th></tr>';
+       
+       for (x in myObj) {
+            posts +=  '<tr><td>' + myObj[x].userId + '</td>';
+            posts +=  '<td>' + myObj[x].id + '</td>'; 
+            posts +=  '<td>' + myObj[x].title + '</td>'; 
+    		posts +=  '<td>' + myObj[x].body + '</td></tr>';      
+      } 
+     posts += '</table>';
+       document.getElementById('table_posts').innerHTML = posts;
+   }   
+};
+xmlhttp.open("GET", "https://jsonplaceholder.typicode.com/posts", true);
+xmlhttp.send();
+</script>
+
+<div class="footer_nav">
+<a href="index.html">Dashboard</a>
+<a href="posts.html">Posts</a>
+<a href="comments.html">Comments</a>
+<a href="albums.html">Albums</a>
+<a href="photos.html">Photos</a>
+<a href="todos.html">Todos</a>
+<a href="users.html">Users</a></div>
+<div id="table_posts"></div>
+
+</body>
+</html>

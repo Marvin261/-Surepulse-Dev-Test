@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="xyz.css">
+</head>
+
+<body>
+
+<h2>iii. Albums: https://jsonplaceholder.typicode.com/albums </h2>
+<div class="home_nav">
+<a href="index.html">Dashboard</a>
+<a href="posts.html">Posts</a>
+<a href="comments.html">Comments</a>
+<a href="albums.html">Albums</a>
+<a href="photos.html">Photos</a>
+<a href="todos.html">Todos</a>
+<a href="users.html">Users</a></div>
+
+<div id="table_albums"></div>
+
+<script>
+var albums = '';
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        var myObj = JSON.parse(this.responseText);
+       albums += '<table border="1">';
+       albums += '<tr><th>USERID</th>';
+       albums += '<th>ID</th>';
+       albums += '<th>TITLE</th></tr>';
+       
+       for (x in myObj) {
+            albums +=  '<tr><td>' + myObj[x].userId + '</td>';
+            albums +=  '<td>' + myObj[x].id + '</td>'; 
+    		albums +=  '<td>' + myObj[x].title + '</td></tr>';      
+      } 
+      albums += '</table>';
+      document.getElementById('table_albums').innerHTML = albums;
+   }   
+};
+xmlhttp.open("GET", "https://jsonplaceholder.typicode.com/albums", true);
+xmlhttp.send();
+</script>
+<div class="footer_nav">
+<a href="index.html">Dashboard</a>
+<a href="posts.html">Posts</a>
+<a href="comments.html">Comments</a>
+<a href="albums.html">Albums</a>
+<a href="photos.html">Photos</a>
+<a href="todos.html">Todos</a>
+<a href="users.html">Users</a></div>
+<div id="table_posts"></div>
+</body>
+</html>
